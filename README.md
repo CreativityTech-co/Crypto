@@ -15,37 +15,37 @@
 > ## 🚀 Características
 >
 > - ✅ Generación de hashes MD5 mediante dos métodos (GET y POST)
-> - - ✅ CORS habilitado para acceso cross-origin
->   - - ✅ Validación robusta de parámetros
->     - - ✅ Endpoint keep-alive para evitar que el servicio se duerma
->       - - ✅ Health check endpoint
->         - - ✅ Logging de debugging
->           - - ✅ Manejo de errores con respuestas JSON consistentes
->             - - ✅ Timestamps en todas las respuestas
+> - ✅ CORS habilitado para acceso cross-origin
+> - ✅ Validación robusta de parámetros
+> - ✅ Endpoint keep-alive para evitar que el servicio se duerma
+> - ✅ Health check endpoint
+> - ✅ Logging de debugging
+> - ✅ Manejo de errores con respuestas JSON consistentes
+> - ✅ Timestamps en todas las respuestas
 >              
->               - ## 📦 Requisitos
+>   ## 📦 Requisitos
 >              
->               - - **Node.js** >= 18.0.0
->                 - - **npm** o **yarn**
+>   - **Node.js** >= 18.0.0
+>   - **npm** o **yarn**
 >                  
->                   - ## 🔧 Instalación
+>   ## 🔧 Instalación
 >                  
->                   - 1. Clona el repositorio:
->                     2. ```bash
->                        git clone https://github.com/CreativityTech-co/Cryto.git
->                        cd Cryto
->                        ```
+>   1. Clona el repositorio:
+>   ```bash
+>      git clone https://github.com/CreativityTech-co/Cryto.git
+>      cd Cryto
+>   ```
 >
-> 2. Instala las dependencias:
-> 3. ```bash
->    npm install
->    ```
+>    2. Instala las dependencias:
+>     ```bash
+>      npm install
+>      ```
 >
-> 3. Configura las variables de entorno (opcional):
-> 4. ```bash
->    # Por defecto, el puerto es 3000
->    export PORT=3000
->    ```
+>    3. Configura las variables de entorno (opcional):
+>     ```bash
+>      # Por defecto, el puerto es 3000
+>      export PORT=3000
+>      ```
 >
 > ## 🚀 Uso
 >
@@ -176,21 +176,21 @@
 > Para integrar Cryto con n8n, utiliza el nodo **HTTP Request**:
 >
 > 1. **Método:** GET o POST (según prefieras)
-> 2. 2. **URL:** `http://tu-dominio:puerto/hash/md5` o `/hash/md5/post`
->    3. 3. **Parámetros:**
->       4.    - `token`: El valor a hashear
->             -    - `accesskey`: La clave de acceso
->                  - 4. **Headers (POST):** `Content-Type: application/json`
+> 2. **URL:** `http://tu-dominio:puerto/hash/md5` o `/hash/md5/post`
+> 3. **Parámetros:**
+> 4.    - `token`: El valor a hashear
+>       - `accesskey`: La clave de acceso
+> 5. **Headers (POST):** `Content-Type: application/json`
 >                   
->                    5. ### Ejemplo en n8n (GET):
->                    6. ```
->                       {{ $request(
->                         'http://localhost:3000/hash/md5?token=' +
->                         encodeURIComponent(token) +
->                         '&accesskey=' +
->                         encodeURIComponent(accesskey)
->                       ).json() }}
->                       ```
+> 6. ### Ejemplo en n8n (GET):
+> ```javascript
+> {{ $request(
+> 'http://localhost:3000/hash/md5?token=' +
+> encodeURIComponent(token) +
+> '&accesskey=' +
+> encodeURIComponent(accesskey)
+> ).json() }}
+> ```
 >
 > ## 📦 Dependencias
 >
@@ -232,23 +232,16 @@
 > ### Render.com
 >
 > 1. Conecta tu repositorio GitHub a Render
-> 2. 2. Crea un nuevo **Web Service**
->    3. 3. Configura:
->       4.    - **Build Command:** `npm install`
->             -    - **Start Command:** `npm start`
->                  -    - **Environment:** Node
->                       - 4. Añade un cron job para el keep-alive:
->                         5.    ```
->                                  */10 * * * * curl https://tu-servicio.onrender.com/keepalive
->                                  ```
+> 2. Crea un nuevo **Web Service**
+> 3. Configura:
+> 4.    - **Build Command:** `npm install`
+>       - **Start Command:** `npm start`
+>       - **Environment:** Node
+> 5. Añade un cron job para el keep-alive:
+>    ```
+>    */10 * * * * curl https://tu-servicio.onrender.com/keepalive
+>    ```
 >
-> ### Heroku
->
-> ```bash
-> heroku create tu-app
-> git push heroku main
-> heroku ps:scale web=1
-> ```
 >
 > ### Docker
 >
@@ -273,21 +266,21 @@
 >
 > - Usar MD5 solo cuando es requerido por sistemas legados o integraciones específicas
 > - - Nunca usar MD5 para almacenar contraseñas
->   - - Para nuevas aplicaciones, considera usar SHA-256 o SHA-512
+> - - Para nuevas aplicaciones, considera usar SHA-256 o SHA-512
 >    
->     - ## 🐛 Logs y Debugging
+>  ## 🐛 Logs y Debugging
 >    
->     - El servidor registra información útil en consola:
+>  El servidor registra información útil en consola:
 >    
->     - ```
-> [2026-01-15T16:30:45.123Z] Hash request - Token length: 10, AccessKey: myke...
-> ```
+>   - ```
+>     [2026-01-15T16:30:45.123Z] Hash request - Token length: 10, AccessKey: myke...
+>     ```
 >
-> Para desactivar logs en producción, comenta la línea `console.log()` en `server.js`.
+>   Para desactivar logs en producción, comenta la línea `console.log()` en `server.js`.
 >
 > ## 📄 Licencia
 >
-> Este proyecto está bajo licencia **MIT**. Ver archivo [LICENSE](LICENSE) para más detalles.
+>   Este proyecto está bajo licencia **MIT**. Ver archivo [LICENSE](LICENSE) para más detalles.
 >
 > ## 👨‍💻 Autor
 >
