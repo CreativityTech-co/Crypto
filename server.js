@@ -9,7 +9,6 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 
-// Keep-alive endpoint para evitar que Render se duerma
 let lastRequest = Date.now();
 app.get('/keepalive', (req, res) => {
 	lastRequest = Date.now();
@@ -34,13 +33,11 @@ app.get('/', (req, res) => {
 	});
 });
 
-// Endpoint GET con query params (tu versión actual)
 app.get('/hash/md5', (req, res) => {
 	try {
 		lastRequest = Date.now();
 		const { token, accesskey } = req.query;
 
-		// Validación más robusta
 		if (!token) {
 			return res.status(400).json({
 				success: false,
@@ -55,12 +52,11 @@ app.get('/hash/md5', (req, res) => {
 			});
 		}
 
-		// Log para debugging (opcional, comenta en producción)
-		console.log(
-			`[${new Date().toISOString()}] Hash request - Token length: ${
-				token.length
-			}, AccessKey: ${accesskey.substring(0, 4)}...`,
-		);
+		// console.log(
+		// 	`[${new Date().toISOString()}] Hash request - Token length: ${
+		// 		token.length
+		// 	}, AccessKey: ${accesskey.substring(0, 4)}...`,
+		// );
 
 		const stringToHash = token + accesskey;
 		const hash = CryptoJS.MD5(stringToHash).toString();
@@ -80,7 +76,6 @@ app.get('/hash/md5', (req, res) => {
 	}
 });
 
-// Endpoint POST alternativo (por si prefieres POST)
 app.post('/hash/md5/post', (req, res) => {
 	try {
 		lastRequest = Date.now();
