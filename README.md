@@ -22,30 +22,30 @@
 > - ✅ Logging de debugging
 > - ✅ Manejo de errores con respuestas JSON consistentes
 > - ✅ Timestamps en todas las respuestas
->              
->   ## 📦 Requisitos
->              
+>
+>  ## 📦 Requisitos
+>
 >   - **Node.js** >= 18.0.0
 >   - **npm** o **yarn**
->                  
->   ## 🔧 Instalación
->                  
+>
+>  ## 🔧 Instalación
+>
 >   1. Clona el repositorio:
 >   ```bash
 >      git clone https://github.com/CreativityTech-co/Cryto.git
 >      cd Cryto
 >   ```
 >
->    2. Instala las dependencias:
->     ```bash
->      npm install
->      ```
+>   2. Instala las dependencias:
+>   ```bash
+>        npm install
+>   ```
 >
->    3. Configura las variables de entorno (opcional):
->     ```bash
+>   3. Configura las variables de entorno (opcional):
+>   ```bash
 >      # Por defecto, el puerto es 3000
 >      export PORT=3000
->      ```
+>   ```
 >
 > ## 🚀 Uso
 >
@@ -181,7 +181,7 @@
 > 4.    - `token`: El valor a hashear
 >       - `accesskey`: La clave de acceso
 > 5. **Headers (POST):** `Content-Type: application/json`
->                   
+>
 > 6. ### Ejemplo en n8n (GET):
 > ```javascript
 > {{ $request(
@@ -267,11 +267,11 @@
 > - Usar MD5 solo cuando es requerido por sistemas legados o integraciones específicas
 > - - Nunca usar MD5 para almacenar contraseñas
 > - - Para nuevas aplicaciones, considera usar SHA-256 o SHA-512
->    
+>
 >  ## 🐛 Logs y Debugging
->    
+>
 >  El servidor registra información útil en consola:
->    
+>
 >   - ```
 >     [2026-01-15T16:30:45.123Z] Hash request - Token length: 10, AccessKey: myke...
 >     ```
