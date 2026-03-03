@@ -54,10 +54,14 @@ const limiter = rateLimit({
 const speedLimiter = slowDown({
 	windowMs: 15 * 60 * 1000, // 15 minutos
 	delayAfter: parseInt(process.env.SLOW_DOWN_DELAY_AFTER) || 50,
-    delayMs: () => parseInt(process.env.SLOW_DOWN_DELAY_MS) || 1000, // Nueva sintaxis
-    validate: {
-        delayMs: false // Deshabilitar la advertencia
-    }
+	delayMs: () => parseInt(process.env.SLOW_DOWN_DELAY_MS) || 1000, // Nueva sintaxis
+	validate: {
+		delayMs: false, // Deshabilitar la advertencia
+	},
+});
+
+// CORS configuration
+const corsOptions = {
 	origin: function (origin, callback) {
 		const allowedOrigins = process.env.ALLOWED_ORIGINS?.split(',') || ['http://localhost:3000'];
 
